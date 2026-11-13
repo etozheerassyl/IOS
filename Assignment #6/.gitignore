@@ -1,0 +1,27 @@
+# Xcode
+.DS_Store
+*/build/*
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## User settings
+xcuserdata/
+*.xcuserdatad
+*.xcuserstate
+
+## DerivedData
+DerivedData/
+build/
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
