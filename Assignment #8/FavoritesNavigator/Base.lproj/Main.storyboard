@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nav-01-Root">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Nav-Scene-01">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nav-01-Root" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Nav-Bar-01">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="List-VC-01" kind="relationship" relationship="rootViewController" id="Nav-Root-Seg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nav-Resp-01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="100"/>
+        </scene>
+        <!--My Countries-->
+        <scene sceneID="List-Scene-01">
+            <objects>
+                <viewController id="List-VC-01" customClass="FavoritesViewController" customModule="FavoritesNavigator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="List-View-01">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Tbl-01-Main">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="76" id="Cell-01-Proto" customClass="FavoriteCell" customModule="FavoritesNavigator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cell-01-Proto" id="Cell-CV-01">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="76"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cell-Img-01">
+                                                    <rect key="frame" x="16" y="12" width="52" height="52"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="52" id="Cell-Img-W"/>
+                                                        <constraint firstAttribute="height" constant="52" id="Cell-Img-H"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cell-Lbl-01">
+                                                    <rect key="frame" x="84" y="27.666666666666671" width="262.66666666666669" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Cell-Img-01" firstAttribute="leading" secondItem="Cell-CV-01" secondAttribute="leading" constant="16" id="Cell-Con-1"/>
+                                                <constraint firstItem="Cell-Img-01" firstAttribute="centerY" secondItem="Cell-CV-01" secondAttribute="centerY" id="Cell-Con-2"/>
+                                                <constraint firstItem="Cell-Lbl-01" firstAttribute="leading" secondItem="Cell-Img-01" secondAttribute="trailing" constant="16" id="Cell-Con-3"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cell-Lbl-01" secondAttribute="trailing" constant="16" id="Cell-Con-4"/>
+                                                <constraint firstItem="Cell-Lbl-01" firstAttribute="centerY" secondItem="Cell-CV-01" secondAttribute="centerY" id="Cell-Con-5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="itemImageView" destination="Cell-Img-01" id="Out-Cell-Img"/>
+                                            <outlet property="titleLabel" destination="Cell-Lbl-01" id="Out-Cell-Lbl"/>
+                                            <segue destination="Det-VC-01" kind="show" identifier="showDetail" id="Seg-Show-Detail"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="List-Safe-01"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tbl-01-Main" firstAttribute="top" secondItem="List-Safe-01" secondAttribute="top" id="Tbl-Con-T"/>
+                            <constraint firstItem="Tbl-01-Main" firstAttribute="leading" secondItem="List-Safe-01" secondAttribute="leading" id="Tbl-Con-L"/>
+                            <constraint firstItem="List-Safe-01" firstAttribute="trailing" secondItem="Tbl-01-Main" secondAttribute="trailing" id="Tbl-Con-R"/>
+                            <constraint firstItem="List-Safe-01" firstAttribute="bottom" secondItem="Tbl-01-Main" secondAttribute="bottom" id="Tbl-Con-B"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Countries" id="List-Nav-Item"/>
+                    <connections>
+                        <outlet property="tableView" destination="Tbl-01-Main" id="Out-List-Tbl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="List-Resp-01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="100"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Det-Scene-01">
+            <objects>
+                <viewController id="Det-VC-01" customClass="DetailViewController" customModule="FavoritesNavigator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Det-View-01">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Det-Img-Hero">
+                                <rect key="frame" x="20" y="119" width="353" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Det-Con-ImgH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Det-Lbl-Title">
+                                <rect key="frame" x="20" y="359" width="353" height="31.333333333333314"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region · Capital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Det-Lbl-Sub">
+                                <rect key="frame" x="20" y="396.33333333333331" width="353" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Det-Stk-Stars">
+                                <rect key="frame" x="20" y="426.33333333333331" width="134" height="22"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Star-01">
+                                        <rect key="frame" x="0.0" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
+                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="Star-W-1"/>
+                                            <constraint firstAttribute="height" constant="22" id="Star-H-1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Star-02">
+                                        <rect key="frame" x="28" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
+                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="Star-W-2"/>
+                                            <constraint firstAttribute="height" constant="22" id="Star-H-2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Star-03">
+                                        <rect key="frame" x="56" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
+                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="Star-W-3"/>
+                                            <constraint firstAttribute="height" constant="22" id="Star-H-3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Star-04">
+                                        <rect key="frame" x="84" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
+                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="Star-W-4"/>
+                                            <constraint firstAttribute="height" constant="22" id="Star-H-4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Star-05">
+                                        <rect key="frame" x="112" y="-0.33333333333333215" width="22" height="21.666666666666664"/>
+                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="Star-W-5"/>
+                                            <constraint firstAttribute="height" constant="22" id="Star-H-5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description text goes here and wraps across multiple lines." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Det-Lbl-Desc">
+                                <rect key="frame" x="20" y="464.33333333333331" width="353" height="38.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Det-Safe-01"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Det-Img-Hero" firstAttribute="top" secondItem="Det-Safe-01" secondAttribute="top" constant="16" id="Det-Con-1"/>
+                            <constraint firstItem="Det-Img-Hero" firstAttribute="leading" secondItem="Det-Safe-01" secondAttribute="leading" constant="20" id="Det-Con-2"/>
+                            <constraint firstItem="Det-Safe-01" firstAttribute="trailing" secondItem="Det-Img-Hero" secondAttribute="trailing" constant="20" id="Det-Con-3"/>
+                            <constraint firstItem="Det-Lbl-Title" firstAttribute="top" secondItem="Det-Img-Hero" secondAttribute="bottom" constant="20" id="Det-Con-4"/>
+                            <constraint firstItem="Det-Lbl-Title" firstAttribute="leading" secondItem="Det-Safe-01" secondAttribute="leading" constant="20" id="Det-Con-5"/>
+                            <constraint firstItem="Det-Safe-01" firstAttribute="trailing" secondItem="Det-Lbl-Title" secondAttribute="trailing" constant="20" id="Det-Con-6"/>
+                            <constraint firstItem="Det-Lbl-Sub" firstAttribute="top" secondItem="Det-Lbl-Title" secondAttribute="bottom" constant="6" id="Det-Con-7"/>
+                            <constraint firstItem="Det-Lbl-Sub" firstAttribute="leading" secondItem="Det-Safe-01" secondAttribute="leading" constant="20" id="Det-Con-8"/>
+                            <constraint firstItem="Det-Safe-01" firstAttribute="trailing" secondItem="Det-Lbl-Sub" secondAttribute="trailing" constant="20" id="Det-Con-9"/>
+                            <constraint firstItem="Det-Stk-Stars" firstAttribute="top" secondItem="Det-Lbl-Sub" secondAttribute="bottom" constant="12" id="Det-Con-10"/>
+                            <constraint firstItem="Det-Stk-Stars" firstAttribute="leading" secondItem="Det-Safe-01" secondAttribute="leading" constant="20" id="Det-Con-11"/>
+                            <constraint firstItem="Det-Lbl-Desc" firstAttribute="top" secondItem="Det-Stk-Stars" secondAttribute="bottom" constant="16" id="Det-Con-12"/>
+                            <constraint firstItem="Det-Lbl-Desc" firstAttribute="leading" secondItem="Det-Safe-01" secondAttribute="leading" constant="20" id="Det-Con-13"/>
+                            <constraint firstItem="Det-Safe-01" firstAttribute="trailing" secondItem="Det-Lbl-Desc" secondAttribute="trailing" constant="20" id="Det-Con-14"/>
+                            <constraint firstItem="Det-Safe-01" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Det-Lbl-Desc" secondAttribute="bottom" constant="20" id="Det-Con-15"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Det-Nav-Item"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="Det-Lbl-Desc" id="Out-Det-Desc"/>
+                        <outlet property="heroImageView" destination="Det-Img-Hero" id="Out-Det-Img"/>
+                        <outlet property="subtitleLabel" destination="Det-Lbl-Sub" id="Out-Det-Sub"/>
+                        <outlet property="titleLabel" destination="Det-Lbl-Title" id="Out-Det-Title"/>
+                        <outletCollection property="starImageViews" destination="Star-01" collectionClass="NSMutableArray" id="Out-Star-1"/>
+                        <outletCollection property="starImageViews" destination="Star-02" collectionClass="NSMutableArray" id="Out-Star-2"/>
+                        <outletCollection property="starImageViews" destination="Star-03" collectionClass="NSMutableArray" id="Out-Star-3"/>
+                        <outletCollection property="starImageViews" destination="Star-04" collectionClass="NSMutableArray" id="Out-Star-4"/>
+                        <outletCollection property="starImageViews" destination="Star-05" collectionClass="NSMutableArray" id="Out-Star-5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Det-Resp-01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1700" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
