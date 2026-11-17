@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-vc-01">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorite Movies-->
+        <scene sceneID="scene-main-01">
+            <objects>
+                <viewController id="main-vc-01" customClass="ViewController" customModule="MyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="root-view-01">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLine" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="table-view-01">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" red="0.050980392156862744" green="0.062745098039215685" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.14901960784313725" green="0.1803921568627451" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FavoriteCell" rowHeight="116" id="proto-cell-01" customClass="FavoriteCell" customModule="MyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="proto-cell-01" id="cell-content-01">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="116"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="poster-iv-01">
+                                                    <rect key="frame" x="16" y="12" width="68" height="92"/>
+                                                    <color key="backgroundColor" red="0.12" green="0.14" blue="0.22" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="68" id="c-poster-w"/>
+                                                        <constraint firstAttribute="height" constant="92" id="c-poster-h"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="leading" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="outer-stack-01">
+                                                    <rect key="frame" x="98" y="12" width="279" height="67"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="title-lbl-01">
+                                                            <rect key="frame" x="0.0" y="0.0" width="88" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="bold" pointSize="17"/>
+                                                            <color key="textColor" red="0.96078431372549022" green="0.96862745098039216" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Director • Year • Genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="subtitle-lbl-01">
+                                                            <rect key="frame" x="0.0" y="26.333333333333332" width="146" height="16.666666666666668"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                            <color key="textColor" red="0.63921568627450975" green="0.67843137254901964" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rating-stack-01">
+                                                            <rect key="frame" x="0.0" y="49" width="106" height="18"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="star1-iv-01">
+                                                                    <rect key="frame" x="0.0" y="-0.33333333333333215" width="18" height="17.666666666666664"/>
+                                                                    <color key="tintColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="18" id="c-star1-w"/>
+                                                                        <constraint firstAttribute="height" constant="18" id="c-star1-h"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="star2-iv-01">
+                                                                    <rect key="frame" x="22" y="-0.33333333333333215" width="18" height="17.666666666666664"/>
+                                                                    <color key="tintColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="18" id="c-star2-w"/>
+                                                                        <constraint firstAttribute="height" constant="18" id="c-star2-h"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="star3-iv-01">
+                                                                    <rect key="frame" x="44" y="-0.33333333333333215" width="18" height="17.666666666666664"/>
+                                                                    <color key="tintColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="18" id="c-star3-w"/>
+                                                                        <constraint firstAttribute="height" constant="18" id="c-star3-h"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="star4-iv-01">
+                                                                    <rect key="frame" x="66" y="-0.33333333333333215" width="18" height="17.666666666666664"/>
+                                                                    <color key="tintColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="18" id="c-star4-w"/>
+                                                                        <constraint firstAttribute="height" constant="18" id="c-star4-h"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="star5-iv-01">
+                                                                    <rect key="frame" x="88" y="-0.33333333333333215" width="18" height="17.666666666666664"/>
+                                                                    <color key="tintColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="18" id="c-star5-w"/>
+                                                                        <constraint firstAttribute="height" constant="18" id="c-star5-h"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.078431372549019607" green="0.098039215686274508" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="poster-iv-01" firstAttribute="leading" secondItem="cell-content-01" secondAttribute="leading" constant="16" id="c-poster-lead"/>
+                                                <constraint firstItem="poster-iv-01" firstAttribute="top" secondItem="cell-content-01" secondAttribute="top" constant="12" id="c-poster-top"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="poster-iv-01" secondAttribute="bottom" constant="12" id="c-poster-bot-ge"/>
+                                                <constraint firstItem="outer-stack-01" firstAttribute="leading" secondItem="poster-iv-01" secondAttribute="trailing" constant="14" id="c-stack-lead"/>
+                                                <constraint firstAttribute="trailing" secondItem="outer-stack-01" secondAttribute="trailing" constant="16" id="c-stack-trail"/>
+                                                <constraint firstItem="outer-stack-01" firstAttribute="top" secondItem="cell-content-01" secondAttribute="top" constant="12" id="c-stack-top"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="outer-stack-01" secondAttribute="bottom" constant="12" id="c-stack-bot-ge"/>
+                                                <constraint firstAttribute="bottom" secondItem="outer-stack-01" secondAttribute="bottom" priority="750" constant="12" id="c-stack-bot-eq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.078431372549019607" green="0.098039215686274508" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="poster-iv-01" id="out-poster"/>
+                                            <outlet property="star1ImageView" destination="star1-iv-01" id="out-star1"/>
+                                            <outlet property="star2ImageView" destination="star2-iv-01" id="out-star2"/>
+                                            <outlet property="star3ImageView" destination="star3-iv-01" id="out-star3"/>
+                                            <outlet property="star4ImageView" destination="star4-iv-01" id="out-star4"/>
+                                            <outlet property="star5ImageView" destination="star5-iv-01" id="out-star5"/>
+                                            <outlet property="subtitleLabel" destination="subtitle-lbl-01" id="out-subtitle"/>
+                                            <outlet property="titleLabel" destination="title-lbl-01" id="out-title"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="main-vc-01" id="out-datasource"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safe-area-01"/>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.062745098039215685" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="table-view-01" firstAttribute="top" secondItem="safe-area-01" secondAttribute="top" id="c-tv-top"/>
+                            <constraint firstItem="table-view-01" firstAttribute="leading" secondItem="safe-area-01" secondAttribute="leading" id="c-tv-lead"/>
+                            <constraint firstItem="safe-area-01" firstAttribute="trailing" secondItem="table-view-01" secondAttribute="trailing" id="c-tv-trail"/>
+                            <constraint firstItem="safe-area-01" firstAttribute="bottom" secondItem="table-view-01" secondAttribute="bottom" id="c-tv-bot"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorite Movies" id="nav-item-01"/>
+                    <connections>
+                        <outlet property="tableView" destination="table-view-01" id="out-tableview"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="first-resp-01" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="scene-nav-01">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nav-vc-01" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="nav-bar-01">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.050980392156862744" green="0.062745098039215685" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.96078431372549022" green="0.77254901960784317" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="main-vc-01" kind="relationship" relationship="rootViewController" id="segue-root-01"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="first-resp-nav-01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="-2"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
+</document>
